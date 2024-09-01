@@ -1,26 +1,21 @@
-﻿<Project ToolsVersion="Current">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
-    <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
-  </PropertyGroup>
-  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
-  <ItemGroup>
-    <ProjectCapability Include="Unity" />
-  </ItemGroup>
-  <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <EnableDefaultItems>false</EnableDefaultItems>
-    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <LangVersion>9.0</LangVersion>
-    <Configurations>Debug;Release</Configurations>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
+    <ProjectGuid>{96537703-A956-56C1-5722-D23754D3EF03}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.Animation.Editor</AssemblyName>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -44,21 +39,23 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <NoStandardLibraries>true</NoStandardLibraries>
-    <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
-    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
-    <UnityProjectGeneratorStyle>SDK</UnityProjectGeneratorStyle>
+    <UnityProjectGeneratorStyle>Legacy</UnityProjectGeneratorStyle>
     <UnityProjectType>Editor:5</UnityProjectType>
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2022.3.44f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
     <Analyzer Include="D:\2022.3.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.SourceGenerators.dll" />
     <Analyzer Include="D:\2022.3.44f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
@@ -1198,30 +1195,66 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj" />
-    <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj" />
-    <ProjectReference Include="Unity.2D.Common.Editor.csproj" />
-    <ProjectReference Include="Unity.2D.Common.Runtime.csproj" />
-    <ProjectReference Include="Unity.2D.Animation.Runtime.csproj" />
-    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj" />
-    <ProjectReference Include="Unity.Mathematics.csproj" />
-    <ProjectReference Include="Unity.Burst.csproj" />
-    <ProjectReference Include="Unity.Collections.csproj" />
-    <ProjectReference Include="UnityEditor.UI.csproj" />
-    <ProjectReference Include="UnityEngine.UI.csproj" />
-    <ProjectReference Include="UnityEditor.TestRunner.csproj" />
-    <ProjectReference Include="UnityEngine.TestRunner.csproj" />
+    <ProjectReference Include="Unity.InternalAPIEditorBridge.001.csproj">
+      <Project>{8C32C397-5B2D-CA3F-6B29-FC2B0D0CB0F6}</Project>
+      <Name>Unity.InternalAPIEditorBridge.001</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
+      <Project>{610158C3-985C-D864-0590-5105AC2106D3}</Project>
+      <Name>Unity.InternalAPIEngineBridge.001</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Common.Editor.csproj">
+      <Project>{86BDA383-7EF8-3798-2F4F-C98C91943498}</Project>
+      <Name>Unity.2D.Common.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Common.Runtime.csproj">
+      <Project>{AD2B8C04-BCAF-2780-FDD8-84329B44DA0B}</Project>
+      <Name>Unity.2D.Common.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Animation.Runtime.csproj">
+      <Project>{4C01E717-1E1E-F271-123A-2D380CE6291F}</Project>
+      <Name>Unity.2D.Animation.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.2D.Sprite.Editor.csproj">
+      <Project>{DC0F9014-29F4-D43E-634B-E717A3BED715}</Project>
+      <Name>Unity.2D.Sprite.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Mathematics.csproj">
+      <Project>{8B3C86BD-CEFE-0483-9FFB-854384826BA5}</Project>
+      <Name>Unity.Mathematics</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Burst.csproj">
+      <Project>{2AAEF8CF-785E-BB3C-8ED2-058C24312F66}</Project>
+      <Name>Unity.Burst</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Collections.csproj">
+      <Project>{16AF32A5-7781-4AE4-4BF3-D13175CC5409}</Project>
+      <Name>Unity.Collections</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.UI.csproj">
+      <Project>{B7206AC4-CC4F-07FC-5F45-F4C3C73429A1}</Project>
+      <Name>UnityEditor.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.UI.csproj">
+      <Project>{3BE4D996-E0D1-1A96-65A9-0074AE24435F}</Project>
+      <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEditor.TestRunner.csproj">
+      <Project>{312254D2-6B81-A8F6-5F75-8514FAF0BDA2}</Project>
+      <Name>UnityEditor.TestRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityEngine.TestRunner.csproj">
+      <Project>{94341057-690C-0FE9-65CC-FC23B1D22ADB}</Project>
+      <Name>UnityEngine.TestRunner</Name>
+    </ProjectReference>
   </ItemGroup>
-  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
-  <ItemGroup>
-    <ProjectCapability Remove="LaunchProfiles" />
-    <ProjectCapability Remove="SharedProjectReferences" />
-    <ProjectCapability Remove="ReferenceManagerSharedProjects" />
-    <ProjectCapability Remove="ProjectReferences" />
-    <ProjectCapability Remove="ReferenceManagerProjects" />
-    <ProjectCapability Remove="COMReferences" />
-    <ProjectCapability Remove="ReferenceManagerCOM" />
-    <ProjectCapability Remove="AssemblyReferences" />
-    <ProjectCapability Remove="ReferenceManagerAssemblies" />
-  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
