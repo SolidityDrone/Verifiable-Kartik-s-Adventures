@@ -7,11 +7,9 @@ using System.Runtime.InteropServices;
 public class Game_manager : MonoBehaviour
 {
 
-    [DllImport("__Internal")]
-    private static extern void SendResult(string score, string stages, string inputs);
+    [DllImport("__Internal")]private static extern void SendResult(string score, string stages, string inputs);
 
-    [DllImport("__Internal")]
-    private static extern void SendGameStartSignal();
+    [DllImport("__Internal")]private static extern void SendGameStartSignal();
 
 
     public bool isGameFinished;
@@ -20,21 +18,17 @@ public class Game_manager : MonoBehaviour
     public GameObject player;
     public Camera_controller camera_controller;
     public GameObject uinfo;
-    // Public variable to hold the reference to the TextMeshPro object
     public TextMeshProUGUI scoreTxt;
 
-    // Private variable to hold the score
     private int score;
-
-    // Public variable for external score increment
-    public int ethRewardPoints = 10;
+    public int ethRewardPoints = 5;
     public string actionDataString = "";
     public GameObject stagemanager;
     public bool isStarted;
-
+    public bool awaitingSignature;
     // Start is called before the first frame update
     void Start()
-    {     
+    {
         UpdateScoreText(); // Update the score text at the start
         Time.timeScale = 0f;
     }
@@ -67,6 +61,7 @@ public class Game_manager : MonoBehaviour
     {
         // Reload the current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     // Coroutine to increase the score by 1 every second
@@ -100,14 +95,16 @@ public class Game_manager : MonoBehaviour
         {
             scoreTxt.text = score.ToString();
         }
-
     }
 
     public void SendResult()
     {
-        string stringifiedstages = stagemanager.GetComponent<stage_manager>().GetStringifiedStageOrder();
-
-        SendResult(score.ToString(), stringifiedstages, actionDataString);
+        if (!awaitingSignature)
+        {
+            string stringifiedstages = stagemanager.GetComponent<stage_manager>().GetStringifiedStageOrder();
+            SendResult(score.ToString(), stringifiedstages, actionDataString);
+            awaitingSignature = true;
+        }
     }
 
     public void SendGameStart()
@@ -115,5 +112,13 @@ public class Game_manager : MonoBehaviour
         SendGameStartSignal();
     }
 
-
+    public void SignedRefusedOrErrored()
+    {
+        awaitingSignature = false;
+    }
+    public void Signed()
+    {
+        awaitingSignature = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }
